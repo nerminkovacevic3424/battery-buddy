@@ -1,0 +1,26 @@
+name: Android checks and APK
+on: [push, pull_request, workflow_dispatch]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+      - uses: android-actions/setup-android@v3
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm test -- --runInBand
+      - run: npx expo prebuild --platform android --no-install
+      - run: chmod +x android/gradlew
+      - run: cd android && ./gradlew :battery-alarm:testDebugUnitTest :app:assembleRelease --no-daemon
+      - uses: actions/upload-artifact@v4
+        with:
+          name: battery-buddy-test-apk
+          path: android/app/build/outputs/apk/release/*.apk

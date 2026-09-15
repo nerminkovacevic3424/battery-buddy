@@ -1,0 +1,36 @@
+{
+  "name": "battery-buddy",
+  "version": "1.0.0",
+  "main": "index.ts",
+  "scripts": {
+    "postinstall": "node scripts/fix-foojay.cjs",
+    "generate:sounds": "node scripts/generate-sounds.cjs",
+    "start": "expo start --dev-client",
+    "android": "expo run:android",
+    "test:android": "node scripts/test-android.cjs",
+    "typecheck": "tsc --noEmit",
+    "test": "jest"
+  },
+  "dependencies": {
+    "@react-native-community/slider": "^5.1.2",
+    "expo": "~55.0.31",
+    "expo-build-properties": "~55.0.18",
+    "expo-dev-client": "~55.0.40",
+    "expo-document-picker": "~55.0.17",
+    "expo-status-bar": "~55.0.6",
+    "expo-system-ui": "~55.0.22",
+    "react": "19.2.0",
+    "react-native": "0.83.10",
+    "react-native-safe-area-context": "~5.6.2"
+  },
+  "devDependencies": {
+    "@testing-library/react-native": "^13.3.3",
+    "@types/jest": "^29.5.14",
+    "@types/react": "~19.2.2",
+    "jest": "^29.7.0",
+    "jest-expo": "~55.0.19",
+    "react-test-renderer": "^19.2.0",
+    "typescript": "~5.9.2"
+  },
+  "private": true
+}

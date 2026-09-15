@@ -1,0 +1,40 @@
+{
+  "expo": {
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#FAF8F5",
+      "image": "./assets/splash-icon.png"
+    },
+    "name": "Battery Buddy",
+    "version": "1.0.0",
+    "platforms": [
+      "android"
+    ],
+    "slug": "battery-buddy",
+    "userInterfaceStyle": "light",
+    "android": {
+      "permissions": [
+        "android.permission.POST_NOTIFICATIONS"
+      ],
+      "package": "com.batterybuddy.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#EEE8F6",
+        "foregroundImage": "./assets/android-icon-foreground.png"
+      }
+    },
+    "icon": "./assets/icon.png",
+    "orientation": "portrait",
+    "plugins": [
+      "expo-document-picker",
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 26
+          }
+        }
+      ],
+      "./plugins/with-short-cmake-paths.cjs"
+    ]
+  }
+}
